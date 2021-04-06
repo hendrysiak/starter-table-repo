@@ -1,8 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Checkbox, FormControlLabel, FormGroup, Paper, Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import { firstStep, fourthStep, secondStep, thirdStep } from './helpers/standardData';
 import { getBook } from './helpers/setScore';
 import { booksData } from './helpers/booksData'

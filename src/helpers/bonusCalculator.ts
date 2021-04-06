@@ -193,29 +193,29 @@
 }
 
 
- const obliczBonusLvbet = (kwota: string): number => {
-	let depozyt = parseFloat(kwota);
-	let bonus = 0;
-	let freebet = 20;
+//  const obliczBonusLvbet = (kwota: string): number => {
+// 	let depozyt = parseFloat(kwota);
+// 	let bonus = 0;
+// 	let freebet = 20;
 
-	if (depozyt < 10) {
-		depozyt = 0;
-	}
+// 	if (depozyt < 10) {
+// 		depozyt = 0;
+// 	}
 
-	if (depozyt >= 20) {
-		bonus = depozyt * 0.1;
-	}
+// 	if (depozyt >= 20) {
+// 		bonus = depozyt * 0.1;
+// 	}
 
-	if (depozyt >= 50) {
-		bonus = depozyt;
-	}
+// 	if (depozyt >= 50) {
+// 		bonus = depozyt;
+// 	}
 
-	if (bonus > 1000) {
-		bonus = 1000;
-	}
+// 	if (bonus > 1000) {
+// 		bonus = 1000;
+// 	}
 
-	return depozyt + bonus + freebet;
-}
+// 	return depozyt + bonus + freebet;
+// }
 
  const obliczBonusLvbet2 = (kwota: string): number => {
 	let depozyt = parseFloat(kwota);

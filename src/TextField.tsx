@@ -1,4 +1,4 @@
-import TextField, { TextFieldProps } from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
 export const CustomTextField = withStyles({

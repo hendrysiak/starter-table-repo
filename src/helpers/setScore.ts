@@ -15,39 +15,39 @@ interface Result {
   usesDisciplines: string[];
 }
 
-const nameSet = (name: string): string => {
-  let discipline = '';
-  switch (name) {
-    case 'piłka nożna':
-      discipline = 'piłkę nożną';
-      break;
-    case 'koszykówka':
-      discipline = 'koszykówkę';
-      break;
-    case 'esport':
-      discipline = 'esport';
-      break
-    case 'sporty wirtualne':
-      discipline = 'wirtualne sporty';
-      break;
-    case 'tenis ziemny':
-      discipline = 'tenis ziemny';
-      break;
-    case 'hokej':
-      discipline = 'hokej';
-      break;
-    case 'siatkówka':
-      discipline = 'siatkówkę';
-      break;
-    case 'inne':
-      discipline = 'inne';
-      break;
-    case 'sporty walki':
-      discipline = 'sporty walki';
-      break;
-  }
-  return discipline;
-}
+// const nameSet = (name: string): string => {
+//   let discipline = '';
+//   switch (name) {
+//     case 'piłka nożna':
+//       discipline = 'piłkę nożną';
+//       break;
+//     case 'koszykówka':
+//       discipline = 'koszykówkę';
+//       break;
+//     case 'esport':
+//       discipline = 'esport';
+//       break
+//     case 'sporty wirtualne':
+//       discipline = 'wirtualne sporty';
+//       break;
+//     case 'tenis ziemny':
+//       discipline = 'tenis ziemny';
+//       break;
+//     case 'hokej':
+//       discipline = 'hokej';
+//       break;
+//     case 'siatkówka':
+//       discipline = 'siatkówkę';
+//       break;
+//     case 'inne':
+//       discipline = 'inne';
+//       break;
+//     case 'sporty walki':
+//       discipline = 'sporty walki';
+//       break;
+//   }
+//   return discipline;
+// }
 
 const pointHandler = (result: Result, data: Record<string, Record<string, string | number>>) => {
   const pointBySkill = data[result.bookmaker][result.skill];
@@ -138,37 +138,21 @@ export const getBook = (
     resultWithDepositMultipier[book] = Number((results[book] * mapOfDepositMultipiers[book]).toFixed());
   };
 
-  if (score.fourthStep === 'bonus-to-deposit') {
-    depositInfo.forEach(deposit => {
-      if (score.fifthStep < deposit.minDep) {
-        results[deposit.buk] = 0
-        resultWithDepositMultipier[deposit.buk] = 0
-      }
-    });
-  }
-
-  // const result = useBonus 
-  //   ? Object.keys(resultWithDepositMultipier).reduce((a, b) => resultWithDepositMultipier[a] > resultWithDepositMultipier[b] ? a : b) 
-  //   : Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
+  // if (score.fourthStep === 'bonus-to-deposit') {
+  //   depositInfo.forEach(deposit => {
+  //     if (score.fifthStep < deposit.minDep) {
+  //       results[deposit.buk] = 0
+  //       resultWithDepositMultipier[deposit.buk] = 0
+  //     }
+  //   });
+  // }
 
   const result = useBonus 
     ? resultWithDepositMultipier
     : results;
     
-  // const tekstIndywidualnyPoziom 
-  //   = score.firstStep === "debiutant" ? "początkujących graczy" 
-  //   : score.firstStep === "średniozaawansowany" ? "graczy z doświadczeniem" 
-  //   : "doświadczonych i wymagających graczy";
-  // const tekstIndywidualnyUrzadzenie 
-  //   = score.secondStep === "mobile" ? "na smartfonach i tabletach"
-  //   : score.secondStep === "desktop" ? "w przeglądarce komputera"
-  //   : "na każdym urządzeniu";
-  // const tekstIndywidualnyDyscypliny = score.thirdStep.map(discipline => nameSet(discipline)).join(", ");
 
   return {
     result,
-    // tekstIndywidualnyPoziom,
-    // tekstIndywidualnyUrzadzenie,
-    // tekstIndywidualnyDyscypliny
   };
 }
